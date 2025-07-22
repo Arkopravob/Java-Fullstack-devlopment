@@ -39,5 +39,5 @@ java-fullstack-roadmap/
 ## 📬 Let’s Connect
 
 - 📧 Email: arka.bhuin@gmail.com
-- 🧑‍💻 GitHub: [github.com/Arkopravob](https://github.com/Arkopravob)
-- 💼 LinkedIn: [linkedin.com/in/Arkopravo Bhuin](https://www.linkedin.com/in/arkopravo-bhuin)
+- 🧑‍💻 GitHub: https://github.com/Arkopravob
+- 💼 LinkedIn: https://www.linkedin.com/in/arkopravo-bhuin
