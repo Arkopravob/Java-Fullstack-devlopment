@@ -26,3 +26,18 @@ java-fullstack-roadmap/
 ├── Week13_FullStack_Project/
 ├── Resume_Projects/
 └── README.md
+
+## 🧰 Tools Used
+
+- IntelliJ IDEA (Java)
+- Spring Boot, REST APIs
+- React (Vite)
+- Git & GitHub for version control
+
+---
+
+## 📬 Let’s Connect
+
+- 📧 Email: arka.bhuin@gmail.com
+- 🧑‍💻 GitHub: [github.com/Arkopravob](https://github.com/Arkopravob)
+- 💼 LinkedIn: [linkedin.com/in/Arkopravo Bhuin](https://www.linkedin.com/in/arkopravo-bhuin)
