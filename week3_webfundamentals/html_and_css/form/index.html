@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-Document</title>
+</head>
+<body>
+    <h1>Job Application :Senior Software Engineer</h1>
+    <p>Thank you for your interest in the Senior Software Engineer position. Please fill out the form below to apply.</p>
+    <hr>
+    <form action="">
+        <h1>Personal Information</h1>
+        <label for="name">Name:</label>
+        <br>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <br>
+        <label for="email">Email:</label>
+        <br>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <br>
+        <label for="phone">Phone:</label>
+        <br>
+        <input type="tel" id="phone" name="phone" required>
+        <br>
+        <br>
+        <label for="url">linkedin URL:</label>
+        <br>
+        <input type="url" id="url" name="url" required placeholder="https://www.linkedin.com/in/your-profile">
+        <br>
+        <br>
+        <hr>
+        <h1>Personal experience</h1>
+        <label for="Resume">Upload your Resume(PDF/DOC/DOCX):</label>
+        <br>
+        <input type="file" id="resume" name="resume" required>
+        <br>
+        <br>
+        <label for="coverLetter">Cover Letter:</label>
+        <br>
+        <textarea name="coverLetter" id="coverLetter" required rows="15" cols="50"></textarea>
+        <br>
+        <br>
+        <label for="experience">Experience:</label>
+        <input type="number" name="experience" id="experience" required>
+        <br>
+        <br>
+        <br>
+        <label for="startDate">Earlyest  possible start date:</label>
+        <br>
+        <input type="date" name="startDate" id="startDate" required>
+        <br>
+        <hr>
+        <h1>Skills and Availability</h1>
+        <label for="primarySkills"> Primary Skills(select all that apply):</label>
+        <br>
+        <br>
+        <input type="radio" name="primarySkills" id="primarySkills" required>
+        <label for="primarySkills">Frontend Developer</label>
+        <br>
+        <br>
+        <input type="radio" name="primarySkills" id="primarySkills" required>
+        <label for="primarySkills">Backend Developer</label>
+        <br>
+        <br>
+        <input type="radio" name="primarySkills" id="primarySkills" required>
+        <label for="primarySkills">Full Stack Developer</label>
+        <br>
+        <br>
+        <label for="AdditionalSkills">Additional Skills(select all that apply):</label> 
+        <br>
+        <br>
+        <input type="checkbox" name="AdditionalSkills" id="AdditionalSkills" required>
+        <label for="AdditionalSkills">Node.js</label>
+        <br>
+        <br>
+        <input type="checkbox" name="AdditionalSkills" id="AdditionalSkills" required>
+        <label for="AdditionalSkills">Database Management System</label>
+        <br>
+        <br>
+        <input type="checkbox" name="AdditionalSkills" id="AdditionalSkills" required>
+        <label for="AdditionalSkills">Cloud /DevOps</label>
+        <br>
+        <br>
+        <input type="checkbox" name="AdditionalSkills" id="AdditionalSkills" required>
+        <label for="AdditionalSkills">PostgreSQL</label>
+        <br>
+        <br>
+        <input type="checkbox" name="AdditionalSkills" id="AdditionalSkills" required>
+        <label for="AdditionalSkills">MongoDB</label>
+        <br>
+        <br>
+        <label for="preferedWorkType"><b>Prefered Work Type:</b></label>
+        <br>
+        <select name="preferedWorkType" id="preferedWorkType" required>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Onsite">Onsite</option>
+        </select>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <h1>Final Confirmation</h1>
+        <br>
+        <input type="checkbox" name="finalConfirmation" id="finalConfirmation" required>
+        <label for="finalConfirmation">I confirm that the information provided is accurate and complete to Legally work in this country.</label>
+        <br>
+        <br>
+        <label for="howdidyouhearaboutus">How did you hear about us?</label>
+        <br>
+        <input type="text" name="howdidyouhearaboutus" id="howdidyouhearaboutus" required placeholder="enter your answer">
+        <br>
+        <br>
+        <input type="button" value="Submit Form" >
+
+        <input type="button" value="Reset Form">
+       
+    </form>
+</body>
+</html>
