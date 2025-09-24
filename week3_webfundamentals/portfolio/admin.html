@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .admin-header h1 {
+            margin: 0;
+            font-family: var(--font-display);
+            font-size: var(--font-size-4xl);
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: var(--font-size-4xl);
+            font-weight: 900;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .admin-section {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .admin-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-family: var(--font-display);
+            font-size: var(--font-size-2xl);
+        }
+
+        .contacts-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .contacts-table th,
+        .contacts-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contacts-table th {
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-new { background: #fef3c7; color: #f59e0b; }
+        .status-read { background: #dbeafe; color: #3b82f6; }
+        .status-responded { background: #d1fae5; color: #10b981; }
+        .status-archived { background: #f3f4f6; color: #6b7280; }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            transition: all var(--transition-base);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border: 1px solid #fecaca;
+        }
+
+        .success {
+            background: #d1fae5;
+            color: #059669;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border: 1px solid #a7f3d0;
+        }
+
+        .refresh-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-base);
+            z-index: 1000;
+        }
+
+        .refresh-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-glow);
+        }
+    </style>
+</head>
+<body>
+    <button class="refresh-btn" onclick="loadDashboardData()" title="Refresh Data">
+        <i class="fas fa-sync-alt"></i>
+    </button>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-tachometer-alt"></i> Portfolio Admin Dashboard</h1>
+            <p>Manage your portfolio data and monitor contact submissions</p>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="admin-stats">
+            <div class="stat-card">
+                <span class="stat-number" id="totalContacts">0</span>
+                <span class="stat-label">Total Contacts</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="newContacts">0</span>
+                <span class="stat-label">New Messages</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="respondedContacts">0</span>
+                <span class="stat-label">Responded</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="serverUptime">0</span>
+                <span class="stat-label">Server Uptime</span>
+            </div>
+        </div>
+
+        <!-- Contact Management -->
+        <div class="admin-section">
+            <h2><i class="fas fa-envelope"></i> Recent Contact Messages</h2>
+            <div id="contactsContainer">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading contact data...
+                </div>
+            </div>
+        </div>
+
+        <!-- System Status -->
+        <div class="admin-section">
+            <h2><i class="fas fa-server"></i> System Status</h2>
+            <div id="systemStatus">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Checking system status...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Admin Dashboard JavaScript
+        let dashboardData = {};
+
+        // Load dashboard data
+        async function loadDashboardData() {
+            try {
+                // Load contact statistics
+                const statsResponse = await fetch('/api/admin/contacts/stats');
+                const statsData = await statsResponse.json();
+
+                if (statsData.success) {
+                    document.getElementById('totalContacts').textContent = statsData.totalContacts || 0;
+                    document.getElementById('newContacts').textContent = statsData.stats.new || 0;
+                    document.getElementById('respondedContacts').textContent = statsData.stats.responded || 0;
+                }
+
+                // Load recent contacts
+                const contactsResponse = await fetch('/api/admin/contacts/recent');
+                const contactsData = await contactsResponse.json();
+
+                if (contactsData.success) {
+                    displayContacts(contactsData.contacts);
+                }
+
+                // Load system status
+                const healthResponse = await fetch('/api/health');
+                const healthData = await healthResponse.json();
+
+                displaySystemStatus(healthData);
+
+            } catch (error) {
+                console.error('Error loading dashboard data:', error);
+                showError('Failed to load dashboard data. Please check your connection.');
+            }
+        }
+
+        // Display contacts in table
+        function displayContacts(contacts) {
+            const container = document.getElementById('contactsContainer');
+
+            if (contacts.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 2rem;">No contact messages yet.</p>';
+                return;
+            }
+
+            const table = `
+                <table class="contacts-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${contacts.map(contact => `
+                            <tr>
+                                <td>${contact.name}</td>
+                                <td>${contact.email}</td>
+                                <td>${formatService(contact.service)}</td>
+                                <td>
+                                    <span class="status-badge status-${contact.status}">
+                                        ${formatStatus(contact.status)}
+                                    </span>
+                                </td>
+                                <td>${new Date(contact.createdAt).toLocaleDateString()}</td>
+                                <td>
+                                    <button class="btn btn-secondary" onclick="updateContactStatus('${contact._id}', '${contact.status === 'new' ? 'read' : contact.status === 'read' ? 'responded' : 'archived'}')">
+                                        ${getNextStatusText(contact.status)}
+                                    </button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+
+            container.innerHTML = table;
+        }
+
+        // Display system status
+        function displaySystemStatus(healthData) {
+            const container = document.getElementById('systemStatus');
+
+            const uptime = Math.floor(healthData.uptime || 0);
+            const hours = Math.floor(uptime / 3600);
+            const minutes = Math.floor((uptime % 3600) / 60);
+            const seconds = uptime % 60;
+
+            container.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="background: #d1fae5; padding: 1rem; border-radius: 8px; border: 1px solid #a7f3d0;">
+                        <h4 style="margin: 0 0 0.5rem 0; color: #059669;"><i class="fas fa-check-circle"></i> Server Status</h4>
+                        <p style="margin: 0; color: #047857;">✅ Online</p>
+                    </div>
+                    <div style="background: #dbeafe; padding: 1rem; border-radius: 8px; border: 1px solid #93c5fd;">
+                        <h4 style="margin: 0 0 0.5rem 0; color: #1d4ed8;"><i class="fas fa-clock"></i> Uptime</h4>
+                        <p style="margin: 0; color: #1e40af;">${hours}h ${minutes}m ${seconds}s</p>
+                    </div>
+                    <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; border: 1px solid #fcd34d;">
+                        <h4 style="margin: 0 0 0.5rem 0; color: #d97706;"><i class="fas fa-calendar"></i> Last Check</h4>
+                        <p style="margin: 0; color: #92400e;">${new Date(healthData.timestamp).toLocaleString()}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update contact status
+        async function updateContactStatus(contactId, newStatus) {
+            try {
+                const response = await fetch(`/api/admin/contacts/${contactId}/status`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ status: newStatus })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showSuccess('Contact status updated successfully!');
+                    loadDashboardData(); // Refresh data
+                } else {
+                    showError(result.message || 'Failed to update contact status');
+                }
+            } catch (error) {
+                console.error('Error updating contact status:', error);
+                showError('Failed to update contact status');
+            }
+        }
+
+        // Utility functions
+        function formatService(service) {
+            const services = {
+                'web-dev': 'Web Development',
+                'mobile-dev': 'Mobile Development',
+                'video-editing': 'Video Editing',
+                'ui-design': 'UI/UX Design',
+                'other': 'Other'
+            };
+            return services[service] || service;
+        }
+
+        function formatStatus(status) {
+            const statuses = {
+                'new': 'New',
+                'read': 'Read',
+                'responded': 'Responded',
+                'archived': 'Archived'
+            };
+            return statuses[status] || status;
+        }
+
+        function getNextStatusText(currentStatus) {
+            const actions = {
+                'new': 'Mark as Read',
+                'read': 'Mark as Responded',
+                'responded': 'Archive',
+                'archived': 'Restore'
+            };
+            return actions[currentStatus] || 'Update';
+        }
+
+        function showError(message) {
+            const container = document.getElementById('contactsContainer');
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = message;
+
+            // Remove existing error messages
+            const existingErrors = container.querySelectorAll('.error, .success');
+            existingErrors.forEach(el => el.remove());
+
+            container.insertBefore(errorDiv, container.firstChild);
+
+            setTimeout(() => {
+                if (errorDiv.parentNode) {
+                    errorDiv.remove();
+                }
+            }, 5000);
+        }
+
+        function showSuccess(message) {
+            const container = document.getElementById('contactsContainer');
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success';
+            successDiv.textContent = message;
+
+            // Remove existing messages
+            const existingMessages = container.querySelectorAll('.error, .success');
+            existingMessages.forEach(el => el.remove());
+
+            container.insertBefore(successDiv, container.firstChild);
+
+            setTimeout(() => {
+                if (successDiv.parentNode) {
+                    successDiv.remove();
+                }
+            }, 3000);
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardData();
+
+            // Auto-refresh every 30 seconds
+            setInterval(loadDashboardData, 30000);
+        });
+
+        // Add some basic authentication check
+        window.addEventListener('load', function() {
+            const password = prompt('Enter admin password:');
+            if (password !== 'admin123') { // Change this to your actual password
+                alert('Access denied!');
+                window.location.href = '/';
+            }
+        });
+    </script>
+</body>
+</html>

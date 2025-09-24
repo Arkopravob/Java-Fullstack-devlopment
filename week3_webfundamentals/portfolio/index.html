@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Fullstack Developer & Media Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">APB</span>
+                <div class="logo-dot"></div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Hi I am Arko</span>
+                    <span class="gradient-text">Java Fullstack Developer</span>
+                    <span class="hero-divider">&</span>
+                    <span class="gradient-text">AI/ML learner</span>
+                </h1>
+                <p class="hero-subtitle">Creating digital experiences that blend cutting-edge technology with stunning visual storytelling</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <span class="window-title">portfolio.js</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="code-line">
+                            <span class="code-number">1</span>
+                            <span class="code-text"><span class="keyword">const</span> <span class="variable">developer</span> = {</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-number">2</span>
+                            <span class="code-text">  <span class="property">name</span>: <span class="string">"Your Name"</span>,</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-number">3</span>
+                            <span class="code-text">  <span class="property">skills</span>: [<span class="string">"React"</span>, <span class="string">"Node.js"</span>, <span class="string">"Python"</span>],</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-number">4</span>
+                            <span class="code-text">  <span class="property">passion</span>: <span class="string">"Creating Amazing UX"</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-number">5</span>
+                            <span class="code-text">};</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-profile">
+                    <div class="profile-image">
+                        <img src="./image/profile.png" alt="Your Name - Fullstack Developer & Media Editor" onerror="this.src='https://via.placeholder.com/300x300/6366f1/ffffff?text=Your+Photo'">
+                        <div class="profile-overlay">
+                            <div class="profile-stats">
+                                <div class="profile-stat">
+                                    <span class="stat-number">50+</span>
+                                    <span class="stat-label">Projects</span>
+                                </div>
+                                <div class="profile-stat">
+                                    <span class="stat-number">3+</span>
+                                    <span class="stat-label">Years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <div class="about-card">
+                        <h3>Full Stack Development</h3>
+                        <p>I specialize in creating robust web applications using modern technologies like React, Node.js, Python,Java  and cloud platforms. My approach combines clean code practices with scalable architecture.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Media & Video Editing</h3>
+                        <p>With expertise in Adobe Creative Suite, Final Cut Pro, and motion graphics, I bring stories to life through compelling visual content and professional video production.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>UI/UX Design</h3>
+                        <p>I create intuitive and visually appealing user interfaces that prioritize user experience while maintaining modern design principles and accessibility standards.</p>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="20">0</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="2">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-vue"></i>
+                            <span>Vue.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                          <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>Express.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS</span>
+                        </div>
+                          <div class="skill-item">
+                            <i class="fa-brands fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                    </div>
+                </div>
+                 <div class="skill-category">
+                    <h3>AI/ML & Cloud</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fa-brands fa-linux"></i>
+                            <span>Linux</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-solid fa-cloud"></i>
+                            <span>Azure cloud</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-brands fa-docker"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cube"></i>
+                            <span>pytorch</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-tensorflow"></i>
+                            <span>TenserFlow</span>
+                        </div>
+                         <div class="skill-item">
+                            <i class="fa-brands fa-git"></i>
+                            <span>Git</span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certifications</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="certifications-grid">
+                <div class="certification-card" onclick="openCredential('https://aws.amazon.com/verification')" data-url="https://aws.amazon.com/verification">
+                    <div class="certification-image">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">AWS Certified Solutions Architect</h3>
+                        <p class="certification-issuer">Amazon Web Services</p>
+                        <p class="certification-date">Issued: January 2024</p>
+                        <p class="certification-description">Demonstrated expertise in designing distributed systems on AWS platform, including compute, storage, database, and networking services.</p>
+                        <div class="certification-skills">
+                            <span class="skill-tag">Cloud Architecture</span>
+                            <span class="skill-tag">AWS Services</span>
+                            <span class="skill-tag">System Design</span>
+                        </div>
+                        <div class="certification-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Credential</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-image">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">React Developer Certification</h3>
+                        <p class="certification-issuer">Meta (Facebook)</p>
+                        <p class="certification-date">Issued: March 2024</p>
+                        <p class="certification-description">Advanced knowledge of React ecosystem including hooks, context API, performance optimization, and modern development practices.</p>
+                        <div class="certification-skills">
+                            <span class="skill-tag">React Hooks</span>
+                            <span class="skill-tag">State Management</span>
+                            <span class="skill-tag">Performance</span>
+                        </div>
+                        <div class="certification-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Credential</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card" onclick="openCredential('https://cloud.google.com/certification/data-analytics')" data-url="https://cloud.google.com/certification/data-analytics">
+                    <div class="certification-image">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Adobe Premiere Pro Expert</h3>
+                        <p class="certification-issuer">Adobe</p>
+                        <p class="certification-date">Issued: December 2023</p>
+                        <p class="certification-description">Professional video editing and post-production skills, including advanced color correction, audio mixing, and motion graphics.</p>
+                        <div class="certification-skills">
+                            <span class="skill-tag">Video Editing</span>
+                            <span class="skill-tag">Color Grading</span>
+                            <span class="skill-tag">Motion Graphics</span>
+                        </div>
+                        <div class="certification-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Credential</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-card" onclick="openCredential('https://cloud.google.com/certification/cloud-developer')" data-url="https://cloud.google.com/certification/cloud-developer">
+                    <div class="certification-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Full Stack Web Development</h3>
+                        <p class="certification-issuer">Ibm profesional Certificates</p>
+                        <p class="certification-date">Issued: November 2023</p>
+                        <p class="certification-description">Comprehensive understanding of modern web development including frontend frameworks, backend technologies, and database management.</p>
+                        <div class="certification-skills">
+                            <span class="skill-tag">MERN Stack</span>
+                            <span class="skill-tag">Database Design</span>
+                            <span class="skill-tag">API Development</span>
+                        </div>
+                        <div class="certification-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Credential</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-card" onclick="openCredential('https://www.coursera.org/account/accomplishments/verify/V59H5UFWF5L6')" data-url="https://www.coursera.org/account/accomplishments/verify/V59H5UFWF5L6">
+                    <div class="certification-image">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Google Data Analytics Professional</h3>
+                        <p class="certification-issuer">Google Career Certificates</p>
+                        <p class="certification-date">Issued: October 2023</p>
+                        <p class="certification-description">User-centered design principles, prototyping, user research, and design systems implementation for modern digital products.</p>
+                        <div class="certification-skills">
+                            <span class="skill-tag">User Research</span>
+                            <span class="skill-tag">Prototyping</span>
+                            <span class="skill-tag">Design Systems</span>
+                        </div>
+                        <div class="certification-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Credential</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-card" onclick="openCredential('https://www.comptia.org/certifications/security')" data-url="https://www.comptia.org/certifications/security">
+                    <div class="certification-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Cybersecurity Fundamentals</h3>
+                        <p class="certification-issuer">CompTIA</p>
+                        <p class="certification-date">Issued: September 2023</p>
+                        <p class="certification-description">Core cybersecurity skills including threat detection, network security, cryptography, and security best practices.</p>
+                        <div class="certification-skills">
+                            <span class="skill-tag">Network Security</span>
+                            <span class="skill-tag">Cryptography</span>
+                            <span class="skill-tag">Threat Analysis</span>
+                        </div>
+                        <div class="certification-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Credential</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">Full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Brand Campaign Video</h3>
+                        <p class="project-description">Creative video campaign combining motion graphics, 3D elements, and cinematic storytelling. Delivered across multiple platforms with optimized formats.</p>
+                        <div class="project-tags">
+                            <span class="tag">After Effects</span>
+                            <span class="tag">Premiere Pro</span>
+                            <span class="tag">Adobe Photoshop</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">PWA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Work Together</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Ready to bring your ideas to life? Whether you need a web application, mobile app, or creative video content, I'm here to help transform your vision into reality.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>arka.bhuin@gmail.com</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 8910752611</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kolkata, India</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/arkopravo-bhuin" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Arkopravob" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/arkopraavo" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="">Select a Service</option>
+                            <option value="web-dev">Web Development</option>
+                            <option value="mobile-dev">Mobile Development</option>
+                            <option value="video-editing">Video Editing</option>
+                            <option value="ui-design">UI/UX Design</option>
+                        </select>
+                        <label for="service">Service Needed</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Project Details</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Portfolio. Crafted with passion and precision.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
